@@ -8,10 +8,8 @@ class BookCard extends React.Component {
         this.handleChange = this.handleChange.bind(this);
     }
 
-    handleChange(event) {
-        this.setState((state) => {
-            return { selectedShelf: event.target.value }
-        });
+    async handleChange(event) {
+        await this.setState({ selectedShelf: event.target.value });
         this.props.changeShelf(this.props.book, this.state.selectedShelf);
     }
 
