@@ -16,12 +16,9 @@ class BooksApp extends React.Component {
       this.changeShelf = this.changeShelf.bind(this); //bind functions which need access to "this"v in the constructor here. 
     }
 
-	componentDidMount() {
-        BooksAPI.getAll().then((books) => {
-            this.setState((state) => ({
-              	books: books
-            }))
-        });
+	async componentDidMount() {
+		const books = await BooksAPI.getAll()
+		this.setState({ books })
 	}
 
 	changeShelf(changedBook, selectedShelf) {
